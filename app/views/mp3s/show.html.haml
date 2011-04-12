@@ -1,0 +1,6 @@
+%div.span-16.last.navmenu
+  = link_to 'Back', mp3s_path  
+= render 'song', { :return_url => request.fullpath, :mp3 => @mp3 }
+
+
+

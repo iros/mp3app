@@ -1,0 +1,9 @@
+= form_tag({:controller => 'ratings', :action => 'create'}, :method => 'post') do
+  Rate:
+  %input.hidden{ :type => 'hidden', :name => 'mp3_id', :value => mp3.id }
+  %input.hidden{ :type => 'hidden', :name => 'return_to', :value => return_url }
+  = render 'shared/rating_dropdown'
+  = submit_tag("+")
+%div
+  Average:
+  = mp3.average_rating

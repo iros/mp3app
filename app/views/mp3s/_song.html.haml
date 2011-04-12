@@ -1,0 +1,30 @@
+:javascript
+  soundManager.onready(function() {
+    soundManager.createSound({
+      id: "#{@mp3.title}",
+      url: "#{@mp3.url}",
+      autoLoad: true,
+      autoPlay: false,
+      onload: function() {
+      },
+      volume: 50
+    });
+  });
+  
+.song.span-16.last
+  .title
+    = mp3.title
+    
+    .menu
+      = render "rating", { :mp3 => mp3, :return_url => return_url }
+      = link_to 'Edit', edit_mp3_path(mp3)
+      = link_to 'Destroy', mp3, :confirm => 'Are you sure?', :method => :delete
+  .byline
+    By
+    = mp3.artist
+    = pretty_duration(mp3.length)
+    
+       
+                         
+  %a.sm2_button{ :href => mp3.url, :type => 'audio/mpeg'}
+  = link_to mp3.url, mp3.url

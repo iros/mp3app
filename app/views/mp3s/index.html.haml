@@ -1,0 +1,3 @@
+%h2 Browse Songs
+= render 'shared/song_list', { :mp3s => @mp3s }
+= link_to 'm3u', url_for(:controller => 'mp3s', :action => 'index', :format => 'm3u')

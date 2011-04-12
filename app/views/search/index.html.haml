@@ -1,0 +1,24 @@
+%h2 Search
+
+%div.search_form
+  = form_tag(url_for({:controller => 'search', :action => 'result'}), :method => 'get') do
+    %table
+      %tr
+        %td
+          %label Artist Name:
+        %td
+          %input{ :type => 'text', :name => 'name'}
+      %tr
+        %td
+          %label Minimum Rating:
+        %td= render 'shared/rating_dropdown'
+        
+    = submit_tag "Search"
+
+.result=@results_for
+
+- if (@mp3s != nil)
+  = render 'shared/song_list', { :mp3s => @mp3s }
+  
+= link_to 'm3u', url_for({:controller => 'search', :action => 'result', :format => 'm3u'}.merge(request.params))
+    

@@ -1,0 +1,10 @@
+%ul.mp3list
+  - mp3s.each do |mp3|
+    %li
+      =link_to(mp3.title, mp3)
+      by
+      = mp3.artist
+      = pretty_duration(mp3.length)
+      - if (mp3.average_rating)
+        Rated:
+        = mp3.average_rating

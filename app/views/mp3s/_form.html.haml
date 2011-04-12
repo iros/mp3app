@@ -1,0 +1,27 @@
+= form_for(@mp3) do |f|
+  - if @mp3.errors.any?
+    #error_explanation
+      = "#{pluralize(@mp3.errors.count, "error")} prohibited this mp3 from being saved:"
+      %ul
+        - @mp3.errors.full_messages.each do |msg|
+          %li= msg
+      
+    
+  %table.span-16.last
+    %tr
+      %td= f.label :url
+      %td= f.text_field :url
+    %tr
+      %td= f.label :title
+      %td= f.text_field :title
+  
+    %tr
+      %td= f.label :artist
+      %td= f.text_field :artist
+
+    %tr
+      %td= f.label :length, "Length, In seconds"
+      %td= f.text_field :length
+    
+  = f.submit
+

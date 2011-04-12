@@ -1,0 +1,8 @@
+%div.span-16.last.navmenu
+  = link_to 'Show', @mp3
+  = link_to 'Back', mp3s_path
+  
+%h2= "Editing Track ##{@mp3.id}"
+= render 'form'
+
+

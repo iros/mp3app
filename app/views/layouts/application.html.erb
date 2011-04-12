@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mp3app</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+	<!-- Framework CSS -->
+    <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mp3-player-button.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/flashblock.css">
+  <script src="/javascripts/soundmanager2-nodebug-jsmin.js"></script>
+  <script src="/javascripts/mp3-player-button.js"></script>
+  <script>
+    soundManager.url = '/swf/';
+    soundManager.flashVersion = 9; // optional: shiny features (default = 8)
+    soundManager.useFlashBlock = false; // optionally, enable when you're ready to dive in
+    // enable HTML5 audio support, if you're feeling adventurous. iPad/iPhone will always get this.
+    // soundManager.useHTML5Audio = true;
+  </script>
+  <%= yield :head %>
+</head>
+<body>
+<div class="container">
+	<div class="span-16 prepend-4 append-4">
+		<div class="span-16 last navmenu">
+		  <%= link_to 'Browse', mp3s_path %>
+		  <%= link_to 'New Song', new_mp3_path %>
+		  <%= link_to 'Search', search_path %>
+		</div>
+		<div id="notice"><%= notice %></div>
+		<%= yield %>
+	</div>
+</div>
+</body>
+</html>

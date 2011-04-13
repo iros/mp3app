@@ -9,6 +9,7 @@ class Mp3 < ActiveRecord::Base
   validates_presence_of :url
   validates_presence_of :length
   validates_presence_of :artist
+  validates_numericality_of :length
   
   def update_rating
     self.update_attributes({:average_rating => self.ratings.collect{|r| r.score}.sum / self.ratings.count})

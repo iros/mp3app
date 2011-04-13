@@ -31,7 +31,3 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'haml'
 gem "validates_existence"
-
-group :development do
-	gem "ruby-debug19"
-end

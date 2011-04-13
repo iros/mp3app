@@ -30,6 +30,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem 'haml'
-gem "will_paginate", "~> 3.0.pre2"
 gem "validates_existence"
-gem "ruby-debug19"
+
+group :development do
+	gem "ruby-debug19"
+end
